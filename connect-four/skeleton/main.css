@@ -1,6 +1,22 @@
+
+.grid {
+    width: 10000px;
+    height: 80px;
+    margin: 4px;
+    border: 4px black solid;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+
+
+
 .column {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     margin: 4px;
     border: 4px black solid;
     border-radius: 100%;
@@ -11,7 +27,7 @@
 }
 
 .row {
-    width: 400px;
+    width: 800px;
     margin: 0px auto;
     display: flex;
     justify-content: center;

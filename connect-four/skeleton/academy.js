@@ -27,18 +27,18 @@ let declaredWinner = false;
         // creates array used to check winners by column
         columnPlayed = board.map(sausages => sausages[`${column}`]) // everybody likes sausages, even vegan ones
         // creates array used to check winners by one diagonal (bottom left to top right)
-        diagonalUpRight = []
+        diagonalUpRight = []    // goes up and right
         for (startRow = rowIndex, startCol = column; startRow <= 5 && startRow >= 0 && startCol <= 6 && startCol >= 0; startRow--, startCol++){
             diagonalUpRight.push(board[startRow][startCol]) 
-        }
+        }                       // goes down and left. Start point displaced by one to avoid double-counting the counter just placed
         for (startRow = rowIndex + 1, startCol = column - 1; startRow <= 5 && startRow >= 0 && startCol <= 6 && startCol >= 0; startRow++, startCol--){
             diagonalUpRight.unshift(board[startRow][startCol]) 
         }
         // and by the other one (top left to bottom right)
-        diagonalUpLeft = []
+        diagonalUpLeft = []    // goes up and left
         for (startRow = rowIndex, startCol = column; startRow <= 5 && startRow >= 0 && startCol <= 6 && startCol >= 0; startRow--, startCol--){
             diagonalUpLeft.push(board[startRow][startCol]) 
-        }
+        }                       // goes down and right. Start point displaced by one to avoid double-counting the counter just placed
         for (startRow = rowIndex + 1, startCol = column + 1; startRow <= 5 && startRow >= 0 && startCol <= 6 && startCol >= 0; startRow++, startCol++){
             diagonalUpLeft.unshift(board[startRow][startCol]) 
         }
@@ -101,7 +101,7 @@ function checkWinner() {
         declaredWinner =  true 
         return winner}
     //draw condition
-    if (board[0][0]!=null && board[0][1]!=null && board[0][2]!=null && board[0][3]!=null &&board[0][4]!=null==board[0][5]!=null&&board[0][6]!=null) { 
+    if (board[0][0]!=null && board[0][1]!=null && board[0][2]!=null && board[0][3]!=null &&board[0][4]!=null && board[0][5]!=null &&board[0][6]!=null) { 
         declaredWinner =  true 
             console.log(declaredWinner)
         winner = "nobody"
